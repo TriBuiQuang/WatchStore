@@ -1,0 +1,69 @@
+﻿@using MvcWatchStore.Models;
+@using PagedList.Mvc;
+
+@model PagedList.PagedList<MvcWatchStore.Models.DonHang>
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý đơn hàng</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Id User
+        </th>
+        <th>
+            Ngày đặt hàng 
+        </th>
+        <th>
+            Ngày giao
+        </th>
+        <th>
+            Đã thanh toán
+        </th>
+        <th>
+            Tình trạng giao
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayGiao)
+        </td>
+        <td>
+            @(item.DaThanhToan == true ? "Đã thanh toán" : "Chưa thanh toán")
+        </td>
+        <td>
+            @(item.TinhTrangGiao == true ? "Đã giao" : "Chưa giao")
+            
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "SuaDonhang", new { id=item.IdDonHang }) |
+            @Html.ActionLink("Details", "Chitietdonhang", new { id=item.IdDonHang }) |
+            @Html.ActionLink("Delete", "Xoadonhang", new { id=item.IdDonHang })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("QLDonhang", new { page = page }))
+
+        </div>
+        <p class="text-center" style="padding:10px;">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;</p>
+    </div>
+</div>

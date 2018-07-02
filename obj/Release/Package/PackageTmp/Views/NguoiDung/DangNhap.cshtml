@@ -1,0 +1,33 @@
+﻿@model MvcWatchStore.Models.KhachHang
+@{
+    ViewBag.title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h4 style="color:red;text-align:center">@ViewBag.Thongbao</h4>
+<table align="center">
+    <h3 style="text-align:center">Đăng Nhập</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px;">
+            <td>Tên Đăng Nhập :</td>
+            <td>
+                @Html.TextBox("TenDN")
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr style="height:40px;">
+            <td>Mật Khẩu :</td>
+            <td>
+                @Html.Password("MatKhau")
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr style="height:40px;">
+            <td></td>
+            <td>
+                <input type="submit" value="Đăng Nhập" class="btn btn-primary" />
+            </td>
+        </tr>
+    }
+</table>

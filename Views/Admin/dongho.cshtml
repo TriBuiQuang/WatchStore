@@ -1,0 +1,98 @@
+﻿@using MvcWatchStore.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<MvcWatchStore.Models.WATCH>
+
+
+@{
+    ViewBag.Title = "dongho";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>Quản lý thông tin đồng hồ</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Themdongho")
+    <span> | </span>
+    @Html.ActionLink("SX theo tên", "DonghoSXTen")
+    <span> | </span>
+    @Html.ActionLink("SX theo tên", "DonghoSXGia")
+</p>
+<p>
+    @using (Html.BeginForm("dongho","Admin",FormMethod.Get))
+    {
+        <b>Search:</b>@Html.TextBox("search")<input type="submit" value="Tìm kiếm" />
+    }
+</p>
+<table class="table">
+    <tr>
+        <th style="width:250px">
+            Tên đồng hồ
+        </th>
+        <th style="width:120px">
+            Ảnh bìa
+        </th>
+        <th style="width:150px">
+            Giá cả
+        </th>
+        <th style="width:200px">
+            Ngày cập nhật
+        </th>
+        <th style="width:120px">
+            Số lượng
+        </th>
+        <th style="width:120px">
+            Thương hiệu
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WatchName)
+        </td>
+        <td>
+            <img src="@Url.Content("~/images/products/"+item.Img)" height="80px" width="70px"/>
+        </td>
+        <td>
+            @String.Format("{0:0,0}",item.Cost) VNĐ
+        </td>
+        <td>
+            @String.Format("{0:dd/MM/yyyy}",item.DateUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand.BrandName)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Suadongho", new { id=item.IdWatch }) |
+            @Html.ActionLink("Chi tiết", "Chitietdongho", new { id=item.IdWatch }) |
+            @Html.ActionLink("Xoá", "Xoadongho", new { id=item.IdWatch })
+            
+        </td>
+    </tr>
+}
+
+</table>
+@*tạo liên kết trang*@
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("dongho", new { page = page }))
+
+        </div>
+        <p class="text-center" style="padding:10px;">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;</p>
+    </div>
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+        padding: 10px;
+    }
+    
+</style>

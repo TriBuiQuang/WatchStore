@@ -1,0 +1,84 @@
+﻿@model MvcWatchStore.Models.WATCH
+
+@{
+    ViewBag.Title = "Suadongho";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Điều chỉnh thông tin đồng hồ</h2>
+
+@using (Html.BeginForm())
+{
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+        <h4>WATCH</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.IdWatch)
+        <div class="col-lg-offset-3">
+            <div class="form-group">
+                <div class="col-md-2 text-right">IdWatch: </div>
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.IdWatch)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2 text-right">Tên Đồng hồ :</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.WatchName, new { @class = "form-control" } )
+                    @Html.ValidationMessageFor(model => model.WatchName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2 text-right">Hình :</div>
+                <div class="col-md-10">Chọn ảnh mới
+                    <input type="file" name="fileupload" />
+                    <img src="@Url.Content("~/images/products/"+ Model.Img)" width="120px" /> (Ảnh hiện tại)
+                    @ViewBag.Thongbao
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2 text-right">Giá :</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cost)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2 text-right">Ngày đăng</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateUp, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateUp)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2 text-right">Số lượng :</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.number, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.number)
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2 text-right">Tên thương hiệu :</div>
+                <div class="col-md-10">
+                    @Html.DropDownList("IdBrand");
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+                    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "dongho")
+</div>

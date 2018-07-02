@@ -1,0 +1,78 @@
+﻿@model MvcWatchStore.Models.WATCH
+
+@{
+    ViewBag.Title = "Themdongho";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thêm đồng hồ</h2>
+@*thêm thuộc tính cho form để úp ảnh*@
+@using (Html.BeginForm("Themdongho","Admin",FormMethod.Post,new { @enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    
+    <hr />
+    @Html.ValidationSummary(true)
+    <div class="col-lg-offset-3">
+        <div class="form-group">
+            @Html.LabelFor(model => model.WatchName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.WatchName)
+                @Html.ValidationMessageFor(model => model.WatchName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Img, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                <input type="file" name="fileupload" />
+                @ViewBag.Thongbao
+            </div>
+        </div>
+        <div class="form-group">
+                @Html.LabelFor(model => model.Cost, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cost)
+                @Html.ValidationMessageFor(model => model.Cost)
+            </div>
+        </div>
+        <div class="form-group">
+               @Html.LabelFor(model => model.DateUp, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                <input type="date" name="DateUp" />
+                @Html.ValidationMessageFor(model => model.DateUp)
+            </div>
+        </div>
+        <div class="form-group">
+                @Html.LabelFor(model => model.number, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.number)
+                @Html.ValidationMessageFor(model => model.DateUp)
+            </div>
+        </div>
+        <div class="form-group">
+                @Html.LabelFor(model => model.IdBrand, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdBrand")
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default pull-left" name="index">
+            @Html.ActionLink("Back to List", "Index")
+        </button>
+        <div class="col-md-10">
+            <input type="submit" value="Thêm mới" class="btn btn-primary pull-right"/>
+        </div>
+
+    </div>
+
+   
+</div>
+}

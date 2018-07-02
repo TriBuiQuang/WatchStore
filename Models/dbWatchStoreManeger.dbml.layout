@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 16.375, 9" name="dbWatchStoreManeger">
+  <DataContextMoniker Name="/dbWatchStoreManegerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="73918986-cd67-4c3d-b31f-dd9cb1a460e5" absoluteBounds="6.125, 7.625, 2, 1.0961531575520844">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/Brand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3280b4e2-5a84-44c0-a9a5-399d34837fd8" absoluteBounds="6.1400000000000006, 8.085, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0344ad62-335d-4dbd-a41a-6b6bf45a17fa" absoluteBounds="8, 2.125, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/ChiTietDatHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5db95904-1117-4d17-9234-28f093ed20db" absoluteBounds="8.015, 2.585, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c4c8d07e-0e04-483f-ad7a-97820b93594c" absoluteBounds="3.375, 2, 2, 1.7535424804687505">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/DonHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dcf2b758-2560-4d4c-8b3b-d8d21a3d5894" absoluteBounds="3.39, 2.46, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f3031503-e5fc-4298-bb4a-28fa92f9863d" absoluteBounds="3.5, 4.125, 2, 2.0822371419270826">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/KhachHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35b6e2fc-b347-415c-b6c7-28eb64331f25" absoluteBounds="3.515, 4.5850000000000009, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b40886dd-4812-47d7-81d8-e6c4ffca99c6" absoluteBounds="3.5, 7.125, 2, 1.4248478190104168">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/Thich" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9fe816a5-2d4a-4fbf-aa27-79d7451cb527" absoluteBounds="3.5150000000000006, 7.5850000000000009, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7446251f-c84e-404c-a10a-e7a6131515cb" absoluteBounds="13.5, 4.375, 2, 1.2605004882812505">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/TimKiem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="540c0be9-ee6e-43d4-acdc-34c310eae4dd" absoluteBounds="13.515, 4.835, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 2.83742390950521); (8 : 2.83742390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbWatchStoreManegerDataContext/DonHang/DonHang_ChiTietDatHang" />
+      <nodes>
+        <classShapeMoniker Id="c4c8d07e-0e04-483f-ad7a-97820b93594c" />
+        <classShapeMoniker Id="0344ad62-335d-4dbd-a41a-6b6bf45a17fa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.4375 : 4.125); (4.4375 : 3.75354248046875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbWatchStoreManegerDataContext/KhachHang/KhachHang_DonHang" />
+      <nodes>
+        <classShapeMoniker Id="f3031503-e5fc-4298-bb4a-28fa92f9863d" />
+        <classShapeMoniker Id="c4c8d07e-0e04-483f-ad7a-97820b93594c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 6.20723714192708); (4.5 : 7.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbWatchStoreManegerDataContext/KhachHang/KhachHang_Thich" />
+      <nodes>
+        <classShapeMoniker Id="f3031503-e5fc-4298-bb4a-28fa92f9863d" />
+        <classShapeMoniker Id="b40886dd-4812-47d7-81d8-e6c4ffca99c6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="339c21c8-3672-46bc-880f-dbe55eef89bb" absoluteBounds="6.75, 4, 2, 1.7535424804687487">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/ChiTietDongHo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7fc381bc-dd1a-49a6-8cf7-ce71549ad59b" absoluteBounds="6.7650000000000006, 4.4600000000000009, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac32d301-6857-4e32-ad7b-13ad680cf6df" absoluteBounds="11.125, 6.5, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/WATCH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="181cbbdf-1b23-4253-8e75-119bea14ba40" absoluteBounds="11.14, 6.9600000000000009, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.92968375 : 6.5); (11.92968375 : 2.83742390950521); (10 : 2.83742390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbWatchStoreManegerDataContext/WATCH/WATCH_ChiTietDatHang" />
+      <nodes>
+        <classShapeMoniker Id="ac32d301-6857-4e32-ad7b-13ad680cf6df" />
+        <classShapeMoniker Id="0344ad62-335d-4dbd-a41a-6b6bf45a17fa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.125 : 7.34375); (5.5 : 7.34375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbWatchStoreManegerDataContext/WATCH/WATCH_Thich" />
+      <nodes>
+        <classShapeMoniker Id="ac32d301-6857-4e32-ad7b-13ad680cf6df" />
+        <classShapeMoniker Id="b40886dd-4812-47d7-81d8-e6c4ffca99c6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.558594375 : 6.5); (12.558594375 : 4.87677124023437); (12.0130170833333 : 4.87677124023437 : JumpStart); (11.8463504166667 : 4.87677124023437 : JumpEnd); (8.75 : 4.87677124023437)]" manuallyRouted="true" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbWatchStoreManegerDataContext/WATCH/WATCH_ChiTietDongHo" />
+      <nodes>
+        <classShapeMoniker Id="ac32d301-6857-4e32-ad7b-13ad680cf6df" />
+        <classShapeMoniker Id="339c21c8-3672-46bc-880f-dbe55eef89bb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.125 : 8.02144490559896); (11.125 : 8.02144490559896)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbWatchStoreManegerDataContext/Brand/Brand_WATCH" />
+      <nodes>
+        <classShapeMoniker Id="73918986-cd67-4c3d-b31f-dd9cb1a460e5" />
+        <classShapeMoniker Id="ac32d301-6857-4e32-ad7b-13ad680cf6df" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e6c17ffb-a964-48b2-8898-89c914b5295d" absoluteBounds="12.875, 2.125, 2, 1.26050048828125">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/Admin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="392c6d5a-f8c1-412b-8ed9-05abd943af34" absoluteBounds="12.89, 2.585, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6948f532-7b95-4e42-b5c3-a210ecc779ed" absoluteBounds="14.125, 6.5, 2, 1.26050048828125">
+      <DataClassMoniker Name="/dbWatchStoreManegerDataContext/HinhChiTietDongHo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c49d7d7-b406-4e73-91cf-4b430a9f092e" absoluteBounds="14.14, 6.9600000000000009, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.125 : 7.13025024414063); (14.125 : 7.13025024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbWatchStoreManegerDataContext/WATCH/WATCH_HinhChiTietDongHo" />
+      <nodes>
+        <classShapeMoniker Id="ac32d301-6857-4e32-ad7b-13ad680cf6df" />
+        <classShapeMoniker Id="6948f532-7b95-4e42-b5c3-a210ecc779ed" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

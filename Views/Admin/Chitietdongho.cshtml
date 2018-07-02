@@ -1,0 +1,63 @@
+﻿@model MvcWatchStore.Models.ChiTietDongHo
+
+@{
+    ViewBag.Title = "Chitietdongho";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT ĐỒNG HỒ</h2>
+
+
+
+<hr />
+<div class="form-horizontal">
+    <div class="col-lg-offset-3">
+        <div class="form-group">
+            @Html.LabelFor(model => model.WATCH.WatchName, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.WATCH.WatchName)
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BaoHanh, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.BaoHanh) ngày
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.XuatXu, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.XuatXu)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tinhtrang, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @(Model.Tinhtrang == 1 ? "Còn hàng" : "Hết hàng")
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mota, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Mota)
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default pull-left" name="index">
+            @Html.ActionLink("Trở về", "dongho")
+        </button>
+
+        <button class="btn btn-default pull-right" name="index">
+            @Html.ActionLink("Sửa", "Suachitietdongho", new { id = Model.IdChiTietDongHo })
+        </button>
+    </div>
+</div>
+
+

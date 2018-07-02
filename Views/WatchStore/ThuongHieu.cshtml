@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MvcWatchStore.Models.Brand>
+
+
+<div class="wrap_menu">
+    <nav class="menu">
+        <ul class="main_menu">
+
+            <li>
+                <a href="#">Thương Hiệu</a>
+                <ul class="sub_menu">
+                    @foreach (var item in Model)
+                    {
+                        <li><a href="@Url.Action("SPTheoThuongHieu","WatchStore",new { id=item.IdBrand})">@item.BrandName </a></li>           
+                    }
+                </ul>
+                
+            </li>
+
+            <li>
+                @Html.ActionLink("Tìm kiếm", "TimKiem", "TimKiem")
+            </li>
+
+            <li>
+                @Html.ActionLink("About","About","WatchStore")
+            </li>
+
+            <li>
+                @Html.ActionLink("Liên lạc", "Contact", "WatchStore")
+            </li>
+        </ul>
+    </nav>
+</div>

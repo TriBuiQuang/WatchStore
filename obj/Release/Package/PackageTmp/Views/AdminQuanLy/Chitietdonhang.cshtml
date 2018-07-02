@@ -1,0 +1,41 @@
+﻿@model MvcWatchStore.Models.ChiTietDatHang
+
+@{
+    ViewBag.Title = "Chi tiết đơn đặt hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết đơn đặt hàng</h2>
+
+<div class="form-horizontal">
+    <div class="col-lg-offset-3">
+        <div class="form-group">
+            @Html.LabelFor(model => model.WATCH.WatchName, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.WATCH.WatchName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Number, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Number)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cost, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Cost)
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default pull-left" name="index">
+            @Html.ActionLink("Trở về", "QLDonhang")
+        </button>
+
+        <button class="btn btn-default pull-right" name="index">
+            @Html.ActionLink("Sửa", "Suachitietdonhang", new { id = Model.IdDonHang })
+        </button>
+    </div>
+</div>

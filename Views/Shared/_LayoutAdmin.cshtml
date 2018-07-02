@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/NewFolder1/bootstrap.min.js"></script>
+    <link href="~/Content/admin/table.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Trang chủ", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Quản lý thương hiệu", "Thuonghieu", "Admin")</li>
+                    <li>@Html.ActionLink("Quản lý đồng hồ", "dongho", "Admin")</li>
+                    <li>@Html.ActionLink("QL User", "QLUser", "AdminQuanLy")</li>
+                    <li>@Html.ActionLink("QL Đơn hàng", "QLDonhang", "AdminQuanLy")</li>
+                    <li>@Html.ActionLink("QL Tìm kiếm", "QLTimkiem", "AdminQuanLy")</li>
+                    @if (Session["Taikhoanadmin"] != null)
+                    {
+                        <li class="dropdown">
+                            <a href="#"  class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Chào mừng bạn @Session["Taikhoanadmin"]</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="@Url.Action("Logout","Admin")"><i class="fa fa-sign-out">Đăng Xuất</i></a>
+                            </div>
+                            
+                        </li>
+   
+                    }   
+                    
+                </ul>
+            </div>       
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+        @*@Scripts.Render("~/bundles/jquery")*@
+        <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    
+    <script src="~/Scripts/popper.js"></script><script src="~/Scripts/NewFolder1/bootstrap.min.js"></script>
+    <script src="~/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @*@RenderSection("scripts", required: false)*@
+    
+</body>
+</html>

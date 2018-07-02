@@ -1,0 +1,70 @@
+﻿@model MvcWatchStore.Models.WATCH
+
+@{
+    ViewBag.Title = "Xoadongho";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xác nhận thông tin sách xoá</h2>
+<h3>bạn quyết định xoá quyển sách này</h3>
+
+
+<hr />
+<div class="form-horizontal">
+    <div class="col-lg-offset-3">
+        <div class="form-group">
+            @Html.LabelFor(model => model.WatchName, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.WatchName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Img, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Img) 
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cost, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @String.Format("{0:0,0}", Model.Cost) VNĐ
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateUp, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @String.Format("{0:dd/MM/yyyy}", Model.DateUp)
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.number, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.number)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Brand.BrandName, new { @class = " col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(modelItem => Model.Brand.BrandName)
+            </div>
+        </div>
+       
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <button class="btn btn-default pull-left" name="index">
+                @Html.ActionLink("Trở về", "dongho")
+            </button>
+
+            <input type="submit" value="Xoá"  class="btn btn-default pull-right">
+        </div>
+    }
+</div>
+

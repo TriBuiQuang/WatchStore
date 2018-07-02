@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcWatchStore.Models.Brand>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li class="p-b-9">
+            <a href="@Url.Action("SPTheoThuongHieu","WatchStore",new { id=item.IdBrand})" class="s-text7">@item.BrandName </a>
+        </li>
+    }
+</ul>

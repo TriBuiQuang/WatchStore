@@ -1,0 +1,39 @@
+﻿@model MvcWatchStore.Models.Brand
+
+@{
+    ViewBag.Title = "Xoá thương hiệu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xoá thương hiệu</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Brand</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrandName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn btn-default" /> 
+                
+            </div>
+        </div>
+        <div>
+            @Html.ActionLink("Trở về", "Thuonghieu")
+        </div>
+    }
+
+</div>

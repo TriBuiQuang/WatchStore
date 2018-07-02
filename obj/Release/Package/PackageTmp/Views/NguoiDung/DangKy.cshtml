@@ -1,0 +1,73 @@
+﻿@model MvcWatchStore.Models.KhachHang
+@{ 
+    ViewBag.title = "DangKy";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h2 style="text-align:center">ĐĂNG KÝ THÀNH VIÊN</h2>
+<table align="center">
+    
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td>Họ tên khách hàng :</td>
+                <td class="form-control">@Html.TextBox("Ten")
+                    @ViewData["Loi1"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td>Tên đăng nhập :</td>
+                <td class="form-control">
+                    @Html.TextBox("TenDangNhap")
+                @ViewData["Loi2"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td>Mật Khẩu :</td>
+                <td class="form-control">
+                    @Html.Password("PassWord")
+                    @ViewData["Loi3"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td>Mật khẩu nhập lại :</td>
+                <td class="form-control">
+                    @Html.Password("RePassWord")
+                    @ViewData["Loi4"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td>Email :</td>
+                <td class="form-control">
+                    @Html.TextBox("Email")
+                    @ViewData["Loi5"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td>Dịa chỉ :</td>
+                <td class="form-control">
+                    @Html.TextBox("DiaChi")
+                    @ViewData["Loi6"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td>Điện thoại :</td>
+                <td class="form-control">
+                    @Html.TextBox("SoDienThoai")
+                    @ViewData["Loi7"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td>Sinh Nhật :</td>
+                <td>
+                    <input type="date" name="NgaySinh" class="form-control" />
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td></td>
+                <td>
+                    <button type="submit" value="Save" class="btn btn-primary" >Save</button>
+                </td>
+            </tr>
+    }
+</table>

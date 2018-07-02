@@ -1,0 +1,87 @@
+﻿@using MvcWatchStore.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<MvcWatchStore.Models.KhachHang>
+
+@{
+    ViewBag.Title = "QLUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QLUser</h2>
+
+<p>
+    @Html.ActionLink("Thêm User", "Themuser")
+</p>
+<p>
+    @using (Html.BeginForm("QLUser", "AdminQuanLy", FormMethod.Get))
+    {
+        <b>Search:</b>@Html.TextBox("search")<input type="submit" value="Tìm kiếm" />
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Họ tên
+        </th>
+        <th>
+            Tên đăng nhập
+        </th>
+        <th>
+            Pass
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            SDT
+        </th>
+        <th>
+            Ngày Sinh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birth)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Suauser", new { id=item.IdKH }) |
+            @Html.ActionLink("Xoá", "Xoauser", new { id=item.IdKH })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("QLUser", new { page = page }))
+
+        </div>
+        <p class="text-center" style="padding:10px;">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;</p>
+    </div>
+</div>

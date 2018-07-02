@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcWatchStore.Models.Brand>
+
+@{
+    ViewBag.Title = "Quản lý thương hiệu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thương hiệu</h2>
+
+<p>
+    @Html.ActionLink("Thêm Hiệu mới", "Themthuonghieu")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrandName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdBrand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrandName)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Suathuonghieu", new { id=item.IdBrand }) |
+
+            @Html.ActionLink("Xoá", "XoaThuonghieu", new { id=item.IdBrand })
+        </td>
+    </tr>
+}
+
+</table>
